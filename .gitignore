@@ -1,3 +1,6 @@
 /.idea/
 /target/
 /grgx.iml
+/grgx.ipr
+/grgx.iws
+/grgx-grailsPlugins.iml
