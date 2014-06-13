@@ -11,7 +11,8 @@ class Domains {
 	static belongsTo = [Pfams]
 
 	static mapping = {
-		id column: "domain_id"
+		id column: "domain_id", sqlType: "int"
+        pfams column: "fk_pfam_id", sqlType: "int"
 		version false
 	}
 }

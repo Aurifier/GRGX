@@ -10,8 +10,8 @@ class ProteinProtein implements Serializable {
 	Integer fkInteractionId
 	Integer fkLiteratureId
 	InteractionType interactions
-	ProteinGroup proteinGroupByFkProteinGroup2
-	ProteinGroup proteinGroupByFkProteinGroup1
+	/*ProteinGroup proteinGroupByFkProteinGroup2
+	ProteinGroup proteinGroupByFkProteinGroup1*/
 	Literature literature
 
 	int hashCode() {
@@ -33,10 +33,20 @@ class ProteinProtein implements Serializable {
 		builder.isEquals()
 	}
 
+    static hasMany = [sourceProteinGroupEntries: ProteinGroup,
+                      targetProteinGroupEntries: ProteinGroup]
+
 	static belongsTo = [InteractionType, Literature, ProteinGroup]
 
 	static mapping = {
 		id composite: ["fkProteinGroup1", "fkProteinGroup2", "fkInteractionId", "fkLiteratureId"]
+        /*proteinGroupByFkProteinGroup1 joinTable: ["name": "protein_group",
+                                                  "key": "group_id",
+                                                  "column": "f_protein_group_1"]
+
+        proteinGroupByFkProteinGroup2 joinTable: ["name": "protein_group",
+                                                  "key": "group_id",
+                                                  "column": "f_protein_group_2"]*/
 		version false
 	}
 

@@ -10,10 +10,10 @@ class ProteinGene implements Serializable {
 	Literature literature
 	ProteinGroup proteinGroup
 
-    private Integer fkProteinGroupSource
-    private Integer fkGeneTarget
-    private Integer fkInterationId
-    private Integer fkLiteratureId
+    Integer fkProteinGroupSource
+    Integer fkGeneTarget
+    Integer fkInterationId
+    Integer fkLiteratureId
 
 	int hashCode() {
 		def builder = new HashCodeBuilder()

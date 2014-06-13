@@ -29,10 +29,8 @@ class ProteinGroup implements Serializable {
 	                  proteinProteinsForFkProteinGroup2: ProteinProtein]
 	static belongsTo = [Proteins]
 
-	// TODO you have multiple hasMany references for class(es) [ProteinProtein] 
-	//      so you'll need to disambiguate them with the 'mappedBy' property:
-	static mappedBy = [proteinProteinsForFkProteinGroup1: "TODO",
-	                   proteinProteinsForFkProteinGroup2: "TODO"]
+	static mappedBy = [proteinProteinsForFkProteinGroup1: "sourceProteinGroupEntries",
+	                   proteinProteinsForFkProteinGroup2: "targetProteinGroupEntries"]
 
 	static mapping = {
 		id composite: ["groupId", "fkProteinId"]

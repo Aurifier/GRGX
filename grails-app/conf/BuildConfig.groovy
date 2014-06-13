@@ -65,7 +65,8 @@ grails.project.dependency.resolution = {
         compile ':db-reverse-engineer:0.5'
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate4:4.3.5.3" // or ":hibernate:3.6.10.15"
+        //runtime ":hibernate4:4.3.5.3" //or 
+        runtime ":hibernate:3.6.10.15"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
 

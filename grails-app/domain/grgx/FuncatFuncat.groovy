@@ -3,6 +3,7 @@ package grgx
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
+/*
 class FuncatFuncat implements Serializable {
 
 	Integer fkFuncatId1
@@ -29,6 +30,10 @@ class FuncatFuncat implements Serializable {
 
 	static mapping = {
 		id composite: ["fkFuncatId1", "fkFuncatId2"]
+        funcatByFkFuncatId1 column: "fk_funcat_id_1"
+        funcatByFkFuncatId2 column: "fk_funcat_id_2"
+        fkFuncatId1 column: "fk_funcat_id_1"
+        fkFuncatId2 column: "fk_funcat_id_2"
 		version false
 	}
 
@@ -37,3 +42,4 @@ class FuncatFuncat implements Serializable {
 		fkFuncatId2 nullable: true
 	}
 }
+*/

@@ -4,17 +4,23 @@ class Funcat {
 
 	String funcatNumber
 
-	static hasMany = [funcatFuncatsForFkFuncatId1: FuncatFuncat,
-	                  funcatFuncatsForFkFuncatId2: FuncatFuncat,
-	                  proteinFuncats: ProteinFuncat]
+	static hasMany = [/*adjFuncats: Funcat,
+                      adjFuncats2: Funcat,*/
+	                  proteins: Proteins]
 
-	// TODO you have multiple hasMany references for class(es) [FuncatFuncat] 
-	//      so you'll need to disambiguate them with the 'mappedBy' property:
-	static mappedBy = [funcatFuncatsForFkFuncatId1: "TODO",
-	                   funcatFuncatsForFkFuncatId2: "TODO"]
+    /*static mappedBy = [adjFuncats: "adjFuncats2",
+                       adjFuncats2: "adjFuncats"]*/
 
 	static mapping = {
-		id column: "funcat_id"
+		id column: "funcat_id", sqlType: "int"
+        /*adjFuncats joinTable: [name: "funcat_funcat",
+                               key: "fk_funcat_id_1",
+                               column: "funcat_id"]
+        adjFuncats2 joinTable: [name: "funcat_funcat",
+                                key: "fk_funcat_id_2",
+                                column: "funcat_id"]*/
+        proteins joinTable: [name: "protein_funcat",
+                             key: "fk_protein_id"]
 		version false
 	}
 

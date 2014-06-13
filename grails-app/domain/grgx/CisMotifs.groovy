@@ -14,7 +14,9 @@ class CisMotifs {
 	static belongsTo = [Ranges, Tissues]
 
 	static mapping = {
-		id column: "cis_id", generator: "assigned"
+		id column: "cis_id", generator: "assigned", sqlType: "int"
+        ranges column: "fk_range_id", sqlType: "int"
+        tissues column: "fk_tissue_id", sqlType: "int"
 		version false
 	}
 

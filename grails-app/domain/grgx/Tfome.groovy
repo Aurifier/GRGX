@@ -6,12 +6,12 @@ class Tfome {
 	String family
 	String vector
 	String insert
-	String 5primeName
-	String 5primeSeq
-	BigDecimal 5primeTemp
-	String 3primeName
-	String 3primeSeq
-	BigDecimal 3primeTemp
+	String fivePrimeName
+	String fivePrimeSeq
+	BigDecimal fivePrimeTemp
+	String threePrimeName
+	String threePrimeSeq
+	BigDecimal threePrimeTemp
 	String pcrCondition
 	String sequence
 	String translation
@@ -30,12 +30,12 @@ class Tfome {
 		family nullable: true, maxSize: 50
 		vector nullable: true, maxSize: 50
 		insert nullable: true, maxSize: 50
-		5primeName nullable: true, maxSize: 50
-		5primeSeq nullable: true, maxSize: 50
-		5primeTemp nullable: true, scale: 1
-		3primeName nullable: true, maxSize: 50
-		3primeSeq nullable: true, maxSize: 50
-		3primeTemp nullable: true, scale: 1
+		fivePrimeName nullable: true, maxSize: 50
+		fivePrimeSeq nullable: true, maxSize: 50
+		fivePrimeTemp nullable: true, scale: 1
+		threePrimeName nullable: true, maxSize: 50
+		threePrimeSeq nullable: true, maxSize: 50
+		threePrimeTemp nullable: true, scale: 1
 		pcrCondition nullable: true, maxSize: 50
 		sequence nullable: true, maxSize: 65535
 		translation nullable: true, maxSize: 65535
