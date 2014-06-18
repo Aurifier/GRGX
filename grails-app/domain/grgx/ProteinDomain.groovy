@@ -15,7 +15,7 @@ class ProteinDomain implements Serializable {
 	String hmm
 	String match
 	String pp
-	Proteins proteins
+	Protein proteins
 	Domains domains
 
 	int hashCode() {
@@ -33,7 +33,7 @@ class ProteinDomain implements Serializable {
 		builder.isEquals()
 	}
 
-	static belongsTo = [Domains, Proteins]
+	static belongsTo = [Domains, Protein]
 
 	static mapping = {
 		id composite: ["fkProteinId", "fkDomainId"]

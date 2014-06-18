@@ -6,7 +6,7 @@ class Funcat {
 
 	static hasMany = [adjFuncats: Funcat,
                       adjFuncats2: Funcat,
-	                  proteins: Proteins]
+	                  proteins: Protein]
 
     static mappedBy = [adjFuncats: "adjFuncats2",
                        adjFuncats2: "adjFuncats"]

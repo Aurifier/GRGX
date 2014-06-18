@@ -4,7 +4,7 @@ class Transcripts {
 
 	Gene genes
 
-	static hasMany = [proteinses: Proteins,
+	static hasMany = [proteinses: Protein,
 	                  tfomes: Tfome,
 	                  transcriptClusters: TranscriptCluster,
 	                  transcriptPartses: TranscriptParts,

@@ -1,6 +1,6 @@
 package grgx
 
-class Proteins {
+class Protein {
 
 	String name
 	Integer fkFamilyId
@@ -12,6 +12,7 @@ class Proteins {
 	static belongsTo = [Transcripts, Funcat]
 
 	static mapping = {
+        table "proteins"
 		id column: "protein_id", sqlType: "int"
         transcripts column: "fk_transcript_id", sqlType: "int"
         funcats joinTable: [name: "protein_funcat",

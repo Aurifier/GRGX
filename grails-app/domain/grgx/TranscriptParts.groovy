@@ -1,5 +1,6 @@
 package grgx
 
+import grails.util.Environment
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
@@ -31,9 +32,13 @@ class TranscriptParts implements Serializable {
 
 	static mapping = {
 		id composite: ["partId", "fkTranscriptId"]
-        partType sqlType: "enum", enumType: "ordinal"
         ranges column: "fk_range_id", sqlType: "int"
         transcripts column: "fk_transcript_id", insertable: false, updateable: false
+
+        if(Environment.current != Environment.TEST) {
+            partType sqlType: "enum", enumType: "ordinal"
+        }
+
 		version false
 	}
 
