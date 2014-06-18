@@ -3,6 +3,7 @@ package grgx
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
+//TODO: Getter for the protein groups
 class ProteinProtein implements Serializable {
 
 	Integer fkProteinGroup1
@@ -10,8 +11,6 @@ class ProteinProtein implements Serializable {
 	Integer fkInteractionId
 	Integer fkLiteratureId
 	InteractionType interactions
-	/*ProteinGroup proteinGroupByFkProteinGroup2
-	ProteinGroup proteinGroupByFkProteinGroup1*/
 	Literature literature
 
 	int hashCode() {
@@ -33,20 +32,15 @@ class ProteinProtein implements Serializable {
 		builder.isEquals()
 	}
 
-    static hasMany = [sourceProteinGroupEntries: ProteinGroup,
-                      targetProteinGroupEntries: ProteinGroup]
-
-	static belongsTo = [InteractionType, Literature, ProteinGroup]
+	static belongsTo = [InteractionType, Literature, ProteinGroupMember]
 
 	static mapping = {
 		id composite: ["fkProteinGroup1", "fkProteinGroup2", "fkInteractionId", "fkLiteratureId"]
-        /*proteinGroupByFkProteinGroup1 joinTable: ["name": "protein_group",
-                                                  "key": "group_id",
-                                                  "column": "f_protein_group_1"]
+        fkProteinGroup1 column: "fk_protein_group_1"
+        fkProteinGroup2 column: "fk_protein_group_2"
+        interactions column: "fk_interaction_id", insertable: false, updateable: false
+        literature column: "fk_literature_id", insertable: false, updateable: false
 
-        proteinGroupByFkProteinGroup2 joinTable: ["name": "protein_group",
-                                                  "key": "group_id",
-                                                  "column": "f_protein_group_2"]*/
 		version false
 	}
 

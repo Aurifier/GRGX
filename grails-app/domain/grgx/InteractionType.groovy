@@ -10,7 +10,8 @@ class InteractionType {
 
 	static mapping = {
         table 'interactions'
-		id column: "interaction_id", generator: "assigned"
+		id column: "interaction_id", generator: "assigned", sqlType: "int"
+        isConfirmed column: "isConfirmed"
 		version false
 	}
 

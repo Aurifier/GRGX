@@ -4,10 +4,11 @@ import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
 class TranscriptParts implements Serializable {
+    enum PartType {exon, cds, five_utr, three_utr, intron}
 
 	Integer partId
 	Integer fkTranscriptId
-	String partType
+    PartType partType
 	Ranges ranges
 	Transcripts transcripts
 
@@ -30,10 +31,13 @@ class TranscriptParts implements Serializable {
 
 	static mapping = {
 		id composite: ["partId", "fkTranscriptId"]
+        partType sqlType: "enum", enumType: "ordinal"
+        ranges column: "fk_range_id", sqlType: "int"
+        transcripts column: "fk_transcript_id", insertable: false, updateable: false
 		version false
 	}
 
 	static constraints = {
-		partType nullable: true, maxSize: 8
+		partType nullable: true
 	}
 }

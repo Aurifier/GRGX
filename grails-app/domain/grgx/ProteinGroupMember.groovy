@@ -3,11 +3,12 @@ package grgx
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
-class ProteinGroup implements Serializable {
+//TODO: Add a non-domain ProteinGroup class for the link between here and Proteins
+class ProteinGroupMember implements Serializable {
 
 	Integer groupId
 	Integer fkProteinId
-	Proteins proteins
+    Proteins protein
 
 	int hashCode() {
 		def builder = new HashCodeBuilder()
@@ -24,16 +25,13 @@ class ProteinGroup implements Serializable {
 		builder.isEquals()
 	}
 
-	static hasMany = [proteinGenes: ProteinGene,
-	                  proteinProteinsForFkProteinGroup1: ProteinProtein,
-	                  proteinProteinsForFkProteinGroup2: ProteinProtein]
 	static belongsTo = [Proteins]
 
-	static mappedBy = [proteinProteinsForFkProteinGroup1: "sourceProteinGroupEntries",
-	                   proteinProteinsForFkProteinGroup2: "targetProteinGroupEntries"]
-
 	static mapping = {
+        table "protein_group"
 		id composite: ["groupId", "fkProteinId"]
+        protein column: "fk_protein_id", insertable: false, updateable: false
+
 		version false
 	}
 }

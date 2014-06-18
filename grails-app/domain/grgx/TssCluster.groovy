@@ -8,14 +8,13 @@ class TssCluster {
 	Float shapeIndex
 	String clusterShape
 	Integer fkTissueId
-	Tss tss
-	TranscriptCluster transcriptCluster
 	Ranges ranges
 
 	static belongsTo = [Ranges]
 
 	static mapping = {
-		id column: "tss_cluster_id"
+		id column: "tss_cluster_id", sqlType: "int"
+        ranges column: "fk_range_interquartile", sqlType: "int"
 		version false
 	}
 
@@ -26,7 +25,5 @@ class TssCluster {
 		shapeIndex nullable: true
 		clusterShape nullable: true, maxSize: 10
 		fkTissueId nullable: true
-		tss nullable: true, unique: true
-		transcriptCluster nullable: true, unique: true
 	}
 }

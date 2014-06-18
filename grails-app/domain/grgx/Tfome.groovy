@@ -22,6 +22,17 @@ class Tfome {
 	static belongsTo = [Transcripts]
 
 	static mapping = {
+        id sqlType: "int"
+        fivePrimeName column: "5prime_name"
+        fivePrimeSeq column: "5prime_seq"
+        fivePrimeTemp column: "5prime_temp"
+        threePrimeName column: "3prime_name"
+        threePrimeSeq column: "3prime_seq"
+        threePrimeTemp column: "3prime_temp"
+        sequence sqlType: "text"
+        transcripts column: "fk_transcript_id", sqlType: "int"
+        translation sqlType: "text"
+
 		version false
 	}
 

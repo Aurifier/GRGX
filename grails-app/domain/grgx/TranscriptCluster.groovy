@@ -9,7 +9,9 @@ class TranscriptCluster {
 	static belongsTo = [Transcripts]
 
 	static mapping = {
-		id column: "fk_cluster_id"
+		id column: "fk_cluster_id", sqlType: "int"
+        transcripts column: "fk_transcript_id", sqlType: "int"
+        tssCluster column: "fk_cluster_id", insertable: false, updateable: false
 		version false
 	}
 

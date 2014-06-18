@@ -6,10 +6,10 @@ class Tissues {
 
 	static hasMany = [cisMotifses: CisMotifs,
 	                  transcriptTissueExpressions: TranscriptTissueExpression,
-	                  transcriptTrasncriptCoexpressions: TranscriptTrasncriptCoexpression]
+	                  transcriptTrasncriptCoexpressions: TranscriptTranscriptCoexpression]
 
 	static mapping = {
-		id column: "tissue_id"
+		id column: "tissue_id", sqlType: "int"
 		version false
 	}
 

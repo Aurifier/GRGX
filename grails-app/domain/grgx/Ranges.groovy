@@ -15,13 +15,15 @@ class Ranges {
 	                  tssClusters: TssCluster]
 
 	static mapping = {
-		id column: "range_id"
+		id column: "range_id", sqlType: "int"
+        posFlank column: "posFlank"
+        negFlank column: "negFlank"
+        sequence sqlType: "text"
 		version false
 	}
 
 	static constraints = {
 		posFlank nullable: true
 		negFlank nullable: true
-		sequence maxSize: 65535
 	}
 }

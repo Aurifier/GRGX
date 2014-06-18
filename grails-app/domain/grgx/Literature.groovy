@@ -11,7 +11,7 @@ class Literature {
 	                  proteinProteins: ProteinProtein]
 
 	static mapping = {
-		id column: "literature_id"
+		id column: "literature_id", sqlType: "int"
 		version false
 	}
 

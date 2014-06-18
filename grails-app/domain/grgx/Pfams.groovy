@@ -7,7 +7,7 @@ class Pfams {
 	static hasMany = [domainses: Domains]
 
 	static mapping = {
-		id column: "pfam_id"
+		id column: "pfam_id", sqlType: "int"
 		version false
 	}
 

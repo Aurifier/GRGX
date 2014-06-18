@@ -37,6 +37,8 @@ class ProteinDomain implements Serializable {
 
 	static mapping = {
 		id composite: ["fkProteinId", "fkDomainId"]
+        domains column: "fk_domain_id", insertable: false, updateable: false
+        proteins column: "fk_protein_id", insertable: false, updateable: false
 		version false
 	}
 

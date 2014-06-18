@@ -12,7 +12,9 @@ class GeneNames {
 	static belongsTo = [Families, Gene]
 
 	static mapping = {
-		id column: "name_id"
+		id column: "name_id", sqlType: "int"
+        families column: "fk_family_id"
+        genes column: "fk_gene_id", sqlType: "int"
 		version false
 	}
 

@@ -7,7 +7,7 @@ class GeneTypes {
 	static hasMany = [geneses: Gene]
 
 	static mapping = {
-		id column: "type_id"
+		id column: "type_id", sqlType: "int"
 		version false
 	}
 

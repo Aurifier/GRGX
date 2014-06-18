@@ -33,6 +33,8 @@ class TfRules implements Serializable {
 
 	static mapping = {
 		id composite: ["fkFamilyId", "fkDomainId", "groupingId"]
+        domains column: "fk_domain_id", insertable: false, updateable: false
+        families column: "fk_family_id", insertable: false, updateable: false
 		version false
 	}
 }

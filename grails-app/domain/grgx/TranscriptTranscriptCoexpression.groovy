@@ -3,7 +3,7 @@ package grgx
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
-class TranscriptTrasncriptCoexpression implements Serializable {
+class TranscriptTranscriptCoexpression implements Serializable {
 
 	Integer fkTranscript1
 	Integer fkTranscript2
@@ -39,6 +39,11 @@ class TranscriptTrasncriptCoexpression implements Serializable {
 
 	static mapping = {
 		id composite: ["fkTranscript1", "fkTranscript2", "coexpressValue", "cluster", "fkTissueId"]
+        fkTranscript1 column: "fk_transcript_1"
+        fkTranscript2 column: "fk_transcript_2"
+        tissues column: "fk_tissue_id", insertable: false, updateable: false
+        transcriptsByFkTranscript1 column: "fk_transcript_1", insertable: false, updateable: false
+        transcriptsByFkTranscript2 column: "fk_transcript_2", insertable: false, updateable: false
 		version false
 	}
 

@@ -30,6 +30,8 @@ class TranscriptTissueExpression implements Serializable {
 
 	static mapping = {
 		id composite: ["fkTissueId", "fkTranscriptId"]
+        transcripts column: "fk_transcript_id", insertable: false, updateable: false
+        tissues column: "fk_tissue_id", insertable: false, updateable: false
 		version false
 	}
 

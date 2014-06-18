@@ -9,7 +9,9 @@ class Tss {
 	Integer location
 
 	static mapping = {
-		id column: "fk_cluster_id"
+		id column: "fk_cluster_id", sqlType: "int"
+        isDom column: "isDom"
+        tssCluster column: "fk_cluster_id", insertable: false, updateable: false
 		version false
 	}
 

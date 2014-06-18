@@ -8,13 +8,15 @@ class Proteins {
 
 	static hasMany = [proteinDomains: ProteinDomain,
 	                  funcats: Funcat,
-	                  proteinGroups: ProteinGroup]
+	                  proteinGroups: ProteinGroupMember]
 	static belongsTo = [Transcripts, Funcat]
 
 	static mapping = {
-		id column: "protein_id"
+		id column: "protein_id", sqlType: "int"
+        transcripts column: "fk_transcript_id", sqlType: "int"
         funcats joinTable: [name: "protein_funcat",
-                            key: "fk_protein_id"]
+                            key: "fk_protein_id"],
+                sqlType: "int"
 		version false
 	}
 
