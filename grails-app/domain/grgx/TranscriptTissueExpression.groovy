@@ -8,7 +8,7 @@ class TranscriptTissueExpression implements Serializable {
 	Integer fkTissueId
 	Integer fkTranscriptId
 	BigDecimal expressValue
-	Transcripts transcripts
+	Transcript transcripts
 	Tissues tissues
 
 	int hashCode() {
@@ -26,7 +26,7 @@ class TranscriptTissueExpression implements Serializable {
 		builder.isEquals()
 	}
 
-	static belongsTo = [Tissues, Transcripts]
+	static belongsTo = [Tissues, Transcript]
 
 	static mapping = {
 		id composite: ["fkTissueId", "fkTranscriptId"]

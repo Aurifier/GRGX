@@ -10,8 +10,8 @@ class TranscriptTranscriptCoexpression implements Serializable {
 	BigDecimal coexpressValue
 	String cluster
 	Integer fkTissueId
-	Transcripts transcriptsByFkTranscript2
-	Transcripts transcriptsByFkTranscript1
+	Transcript transcriptsByFkTranscript2
+	Transcript transcriptsByFkTranscript1
 	Tissues tissues
 
 	int hashCode() {
@@ -35,7 +35,7 @@ class TranscriptTranscriptCoexpression implements Serializable {
 		builder.isEquals()
 	}
 
-	static belongsTo = [Tissues, Transcripts]
+	static belongsTo = [Tissues, Transcript]
 
 	static mapping = {
 		id composite: ["fkTranscript1", "fkTranscript2", "coexpressValue", "cluster", "fkTissueId"]

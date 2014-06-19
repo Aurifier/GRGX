@@ -1,25 +1,23 @@
+import grails.test.GrailsUnitTestCase
+import grails.test.mixin.Mock
 import grails.test.mixin.TestMixin
-import grails.test.mixin.domain.DomainClassUnitTestMixin
 import grgx.Protein
 import grgx.ProteinGroupMember
+import grgx.Transcript
 import spock.lang.Specification
 
 /**
  * Created by drew on 6/18/14.
  */
-@TestMixin(DomainClassUnitTestMixin)
+@Mock([Protein,ProteinGroupMember,Transcript])
+@TestMixin(GrailsUnitTestCase)
 class ProteinGroupTest extends Specification{
     void "can retrieve single protein" () {
         given:
             def g_id = 1
-            def p_id = 3
             def pName = "footein"
-            mockDomain(Protein, [
-                    [name: pName, id: p_id]
-            ])
-            mockDomain(ProteinGroupMember, [
-                    [groupId: 1, protein: p_id]
-            ])
+            def protein = new Protein(name: pName, transcript: new Transcript()).save(flush: true, failOnError: true)
+            new ProteinGroupMember(groupId: g_id, fkProteinId: protein.id, protein: protein).save(flush: true, failOnError: true)
 
             ProteinGroup group = new ProteinGroup(g_id)
         when:
@@ -28,7 +26,27 @@ class ProteinGroupTest extends Specification{
         then:
             assert proteins != null
             assert proteins.size() == 1
-            assert proteins[0].name == pName
-            assert proteins[0].id == p_id
+            assert proteins.contains(protein)
+    }
+
+    void "can retrieve two proteins" () {
+        given:
+            def g_id = 4
+
+            def p1 = new Protein(transcript: new Transcript()).save(flush: true, failOnError: true)
+            def p2 = new Protein(transcript: new Transcript()).save(flush: true, failOnError: true)
+
+            new ProteinGroupMember(groupId: g_id, fkProteinId: p1.id, protein: p1).save(flush: true, failOnError: true)
+            new ProteinGroupMember(groupId: g_id, fkProteinId: p2.id, protein: p2).save(flush: true, failOnError: true)
+
+            def group = new ProteinGroup(g_id)
+        when:
+            List<Protein> proteins = group.getProteins()
+
+        then:
+            assert proteins != null
+            assert proteins.size() == 2
+            assert proteins.contains(p1)
+            assert proteins.contains(p2)
     }
 }

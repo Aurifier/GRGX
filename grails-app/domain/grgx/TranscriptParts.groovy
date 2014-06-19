@@ -11,7 +11,7 @@ class TranscriptParts implements Serializable {
 	Integer fkTranscriptId
     PartType partType
 	Ranges ranges
-	Transcripts transcripts
+	Transcript transcripts
 
 	int hashCode() {
 		def builder = new HashCodeBuilder()
@@ -28,7 +28,7 @@ class TranscriptParts implements Serializable {
 		builder.isEquals()
 	}
 
-	static belongsTo = [Ranges, Transcripts]
+	static belongsTo = [Ranges, Transcript]
 
 	static mapping = {
 		id composite: ["partId", "fkTranscriptId"]

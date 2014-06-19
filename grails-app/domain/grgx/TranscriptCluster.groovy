@@ -4,9 +4,9 @@ class TranscriptCluster {
 
 	TssCluster tssCluster
 	String moreToComePossibly
-	Transcripts transcripts
+	Transcript transcripts
 
-	static belongsTo = [Transcripts]
+	static belongsTo = [Transcript]
 
 	static mapping = {
 		id column: "fk_cluster_id", sqlType: "int"

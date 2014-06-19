@@ -7,7 +7,7 @@ class Gene {
 
 	static hasMany = [geneNameses: GeneNames,
 	                  proteinGenes: ProteinGene,
-	                  transcriptses: Transcripts]
+	                  transcriptses: Transcript]
 	static belongsTo = [GeneTypes, Ranges]
 
 	static mapping = {

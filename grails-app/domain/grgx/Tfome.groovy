@@ -19,9 +19,9 @@ class Tfome {
 	String translation
 	String requestInfo
 	String pi
-	Transcripts transcripts
+	Transcript transcripts
 
-	static belongsTo = [Transcripts]
+	static belongsTo = [Transcript]
 
 	static mapping = {
         id sqlType: "int"

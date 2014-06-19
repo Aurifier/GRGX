@@ -1,6 +1,6 @@
 package grgx
 
-class Transcripts {
+class Transcript {
 
 	Gene genes
 
