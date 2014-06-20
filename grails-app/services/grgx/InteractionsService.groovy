@@ -7,9 +7,8 @@ class InteractionsService {
 
     def neighbors(Gene gene) {
         def inters = gene.proteinGeneInteractions
-
-        [
-            [sources: inters[0].sourceProteins, target: gene]
-        ]
+        inters.collect {
+            [sources: it.sourceProteins, target: gene]
+        }
     }
 }
