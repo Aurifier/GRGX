@@ -4,7 +4,7 @@ class Transcript {
 
 	Gene genes
 
-	static hasMany = [proteinses: Protein,
+	static hasMany = [//proteinses: Protein,
 	                  tfomes: Tfome,
 	                  transcriptClusters: TranscriptCluster,
 	                  transcriptPartses: TranscriptParts,
@@ -17,6 +17,7 @@ class Transcript {
 	                   transcriptTrasncriptCoexpressionsForFkTranscript2: "transcriptsByFkTranscript2"]
 
 	static mapping = {
+        table 'transcripts'
 		id column: "transcript_id", sqlType: "int"
         genes column: "fk_gene_id", sqlType: "int"
 		version false

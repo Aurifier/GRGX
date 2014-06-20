@@ -3,7 +3,6 @@ package grgx
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
-//TODO: Add a non-domain ProteinGroup class for the link between here and Protein
 class ProteinGroupMember implements Serializable {
 
 	Integer groupId
@@ -34,4 +33,8 @@ class ProteinGroupMember implements Serializable {
 
 		version false
 	}
+
+    static constraints = {
+        fkProteinId nullable: true
+    }
 }

@@ -8,7 +8,7 @@ class Literature {
 	String firstAuthor
 
 	static hasMany = [proteinGenes: ProteinGene,
-	                  proteinProteins: ProteinProtein]
+	                  proteinProteins: ProteinProteinInteraction]
 
 	static mapping = {
 		id column: "literature_id", sqlType: "int"

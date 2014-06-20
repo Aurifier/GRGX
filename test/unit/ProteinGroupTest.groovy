@@ -2,6 +2,7 @@ import grails.test.GrailsUnitTestCase
 import grails.test.mixin.Mock
 import grails.test.mixin.TestMixin
 import grgx.Protein
+import grgx.ProteinGroup
 import grgx.ProteinGroupMember
 import grgx.Transcript
 import spock.lang.Specification
@@ -11,12 +12,12 @@ import spock.lang.Specification
  */
 @Mock([Protein,ProteinGroupMember,Transcript])
 @TestMixin(GrailsUnitTestCase)
-class ProteinGroupTest extends Specification{
+class ProteinGroupTest extends Specification {
     void "can retrieve single protein" () {
         given:
             def g_id = 1
             def pName = "footein"
-            def protein = new Protein(name: pName, transcript: new Transcript()).save(flush: true, failOnError: true)
+            def protein = new Protein(name: pName).save(flush: true, failOnError: true)
             new ProteinGroupMember(groupId: g_id, fkProteinId: protein.id, protein: protein).save(flush: true, failOnError: true)
 
             ProteinGroup group = new ProteinGroup(g_id)
@@ -33,8 +34,8 @@ class ProteinGroupTest extends Specification{
         given:
             def g_id = 4
 
-            def p1 = new Protein(transcript: new Transcript()).save(flush: true, failOnError: true)
-            def p2 = new Protein(transcript: new Transcript()).save(flush: true, failOnError: true)
+            def p1 = new Protein().save(flush: true, failOnError: true)
+            def p2 = new Protein().save(flush: true, failOnError: true)
 
             new ProteinGroupMember(groupId: g_id, fkProteinId: p1.id, protein: p1).save(flush: true, failOnError: true)
             new ProteinGroupMember(groupId: g_id, fkProteinId: p2.id, protein: p2).save(flush: true, failOnError: true)

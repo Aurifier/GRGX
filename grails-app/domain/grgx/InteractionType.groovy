@@ -6,7 +6,7 @@ class InteractionType {
 	Boolean isConfirmed
 
 	static hasMany = [proteinGenes: ProteinGene,
-	                  proteinProteins: ProteinProtein]
+	                  proteinProteins: ProteinProteinInteraction]
 
 	static mapping = {
         table 'interactions'

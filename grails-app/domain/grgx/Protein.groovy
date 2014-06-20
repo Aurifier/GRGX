@@ -4,7 +4,7 @@ class Protein {
 
 	String name
 	Integer fkFamilyId
-	Transcript transcript
+	//Transcript transcript
 
 	static hasMany = [proteinDomains: ProteinDomain,
 	                  funcats: Funcat,
@@ -14,7 +14,7 @@ class Protein {
 	static mapping = {
         table "proteins"
 		id column: "protein_id", sqlType: "int"
-        transcript column: "fk_transcript_id", sqlType: "int"
+        //transcript column: "fk_transcript_id", sqlType: "int"
         funcats joinTable: [name: "protein_funcat",
                             key: "fk_protein_id"],
                 sqlType: "int"

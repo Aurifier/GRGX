@@ -1,4 +1,5 @@
-import grgx.Protein
+package grgx
+
 import grgx.ProteinGroupMember
 
 /**
