@@ -3,24 +3,27 @@ package grgx
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder
 
-//TODO: Getter for the protein group
-class ProteinGene implements Serializable {
+class ProteinGeneInteraction implements Serializable {
 
     Gene gene
-	InteractionType interaction
+	InteractionType interactionType
 	Literature literature
-//	ProteinGroupMember proteinGroup
 
-    Integer fkProteinGroupSource
+    Integer fkSourceProteinGroup
     Integer fkGeneTarget
-    Integer fkInteractionId
+    Integer fkInteractionTypeId
     Integer fkLiteratureId
+
+    def getSourceProteins() {
+        def group = new ProteinGroup(fkSourceProteinGroup)
+        group.proteins
+    }
 
 	int hashCode() {
 		def builder = new HashCodeBuilder()
-		builder.append fkProteinGroupSource
+		builder.append fkSourceProteinGroup
 		builder.append fkGeneTarget
-		builder.append fkInteractionId
+		builder.append fkInteractionTypeId
 		builder.append fkLiteratureId
 		builder.toHashCode()
 	}
@@ -28,9 +31,9 @@ class ProteinGene implements Serializable {
 	boolean equals(other) {
 		if (other == null) return false
 		def builder = new EqualsBuilder()
-		builder.append fkProteinGroupSource, other.fkProteinGroupSource
+		builder.append fkSourceProteinGroup, other.fkSourceProteinGroup
 		builder.append fkGeneTarget, other.fkGeneTarget
-		builder.append fkInteractionId, other.fkInteractionId
+		builder.append fkInteractionTypeId, other.fkInteractionTypeId
 		builder.append fkLiteratureId, other.fkLiteratureId
 		builder.isEquals()
 	}
@@ -38,19 +41,19 @@ class ProteinGene implements Serializable {
 	static belongsTo = [Gene, InteractionType, Literature]
 
 	static mapping = {
-		id composite: ["fkProteinGroupSource", "fkGeneTarget", "fkInteractionId", "fkLiteratureId"]
+		id composite: ["fkSourceProteinGroup", "fkGeneTarget", "fkInteractionTypeId", "fkLiteratureId"]
         gene column: "fk_gene_target", insertable: false, updateable: false
-        interaction column: "fk_interaction_id", insertable: false, updateable: false
+        interactionType column: "fk_interaction_id", insertable: false, updateable: false
+        fkInteractionTypeId column: "fk_interaction_id", insertable: false, updateable: false
         literature column: "fk_literature_id", insertable: false, updateable: false
 
-        //proteinGroup column: "fk_protein_group_source"
 		version false
 	}
 
 	static constraints = {
-		fkProteinGroupSource nullable: true
+		fkSourceProteinGroup nullable: true
 		fkGeneTarget nullable: true
-		fkInteractionId nullable: true
+		fkInteractionTypeId nullable: true
 		fkLiteratureId nullable: true
 	}
 }

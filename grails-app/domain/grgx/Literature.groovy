@@ -7,7 +7,7 @@ class Literature {
 	Date date
 	String firstAuthor
 
-	static hasMany = [proteinGenes: ProteinGene,
+	static hasMany = [proteinGenes: ProteinGeneInteraction,
 	                  proteinProteins: ProteinProteinInteraction]
 
 	static mapping = {

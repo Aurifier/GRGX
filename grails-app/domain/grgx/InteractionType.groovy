@@ -5,7 +5,7 @@ class InteractionType {
 	String regulation
 	Boolean isConfirmed
 
-	static hasMany = [proteinGenes: ProteinGene,
+	static hasMany = [proteinGenes: ProteinGeneInteraction,
 	                  proteinProteins: ProteinProteinInteraction]
 
 	static mapping = {

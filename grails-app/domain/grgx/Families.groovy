@@ -7,7 +7,7 @@ class Families {
 	Boolean isCoRegulator
     Integer id
 
-	static hasMany = [geneNameses: GeneNames,
+	static hasMany = [geneNameses: GeneName,
 	                  tfRuleses: TfRules]
 
 	static mapping = {

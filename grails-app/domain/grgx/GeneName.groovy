@@ -1,6 +1,6 @@
 package grgx
 
-class GeneNames {
+class GeneName {
 
 	String type
 	String name
